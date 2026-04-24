@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS — Subject</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="teacher.css">
+</head>
+<body class="app-layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">LMS</div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link">My Subjects</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="btn btn-secondary btn-sm btn-block" id="logout-btn">Logout</button>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <span class="navbar-title" id="subject-name">Subject</span>
+            <div class="navbar-right">
+                <span class="navbar-user" id="navbar-user"></span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-body">
+
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 id="page-subject-name">Subject</h1>
+                        <p id="page-batch-name"></p>
+                    </div>
+                    <a href="dashboard.html" class="btn btn-secondary">← Back</a>
+                </div>
+
+                <div id="subject-tabs" class="tab-bar">
+                    <button class="tab-btn" data-tab="tab-notes">Notes</button>
+                    <button class="tab-btn" data-tab="tab-videos">Videos</button>
+                    <button class="tab-btn" data-tab="tab-doubts">Doubts</button>
+                </div>
+
+                <!-- Notes Tab -->
+                <section class="tab-panel" id="tab-notes">
+                    <div class="add-content-form">
+                        <h3>Add Note</h3>
+                        <div class="add-content-row">
+                            <div class="form-group">
+                                <label class="form-label" for="note-title">Title</label>
+                                <input class="form-input" type="text" id="note-title"
+                                       placeholder="Note title">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="note-url">URL / Link</label>
+                                <input class="form-input" type="url" id="note-url"
+                                       placeholder="https://docs.example.com/...">
+                            </div>
+                            <div>
+                                <label class="form-label">&nbsp;</label>
+                                <button class="btn btn-primary" id="add-note-btn">Add Note</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="notes-list">
+                        <p class="table-empty">Loading…</p>
+                    </div>
+                </section>
+
+                <!-- Videos Tab -->
+                <section class="tab-panel" id="tab-videos">
+                    <div class="add-content-form">
+                        <h3>Add Video</h3>
+                        <div class="add-content-row">
+                            <div class="form-group">
+                                <label class="form-label" for="video-title">Title</label>
+                                <input class="form-input" type="text" id="video-title"
+                                       placeholder="Video title">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="video-url">URL / Link</label>
+                                <input class="form-input" type="url" id="video-url"
+                                       placeholder="https://youtu.be/...">
+                            </div>
+                            <div>
+                                <label class="form-label">&nbsp;</label>
+                                <button class="btn btn-primary" id="add-video-btn">Add Video</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="videos-list">
+                        <p class="table-empty">Loading…</p>
+                    </div>
+                </section>
+
+                <!-- Doubts Tab -->
+                <section class="tab-panel" id="tab-doubts">
+                    <div class="filter-bar">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="pending">Pending</button>
+                        <button class="filter-btn" data-filter="resolved">Resolved</button>
+                    </div>
+                    <div id="doubts-list">
+                        <p class="table-empty">Loading…</p>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Reply / Follow-up Modal -->
+    <div class="modal-overlay" id="reply-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title" id="reply-modal-title">Reply to Doubt</h2>
+                <button class="modal-close" id="close-reply-modal">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label" id="reply-textarea-label" for="reply-text">Your Reply</label>
+                <textarea class="form-input" id="reply-text" rows="5"
+                          placeholder="Type your reply here…"></textarea>
+            </div>
+            <div class="modal-footer-btns">
+                <button class="btn btn-secondary" id="cancel-reply">Cancel</button>
+                <button class="btn btn-primary" id="submit-reply">Submit Reply</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="subject.js"></script>
+</body>
+</html>

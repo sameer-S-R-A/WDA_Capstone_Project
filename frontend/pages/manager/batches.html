@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS — Batches</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="manager.css">
+</head>
+<body class="app-layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">LMS</div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link">Dashboard</a>
+            <a href="batches.html"   class="sidebar-link">Batches</a>
+            <a href="teachers.html"  class="sidebar-link">Teachers</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="btn btn-secondary btn-sm btn-block" id="logout-btn">Logout</button>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <span class="navbar-title">Batches</span>
+            <div class="navbar-right">
+                <span class="navbar-user" id="navbar-user"></span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-body">
+
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1>Batches</h1>
+                        <p>Manage all batches in your institution</p>
+                    </div>
+                    <button class="btn btn-primary" id="create-batch-btn">+ Create Batch</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Year</th>
+                                <th>Description</th>
+                                <th>Subjects</th>
+                                <th>Students</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="batches-tbody">
+                            <tr><td colspan="7" class="table-empty">Loading…</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Create Batch Modal -->
+    <div class="modal-overlay" id="create-batch-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Create New Batch</h2>
+                <button class="modal-close" id="close-create-batch">&times;</button>
+            </div>
+            <form id="create-batch-form" novalidate>
+                <div class="form-group">
+                    <label class="form-label" for="cb-name">Batch Name</label>
+                    <input class="form-input" type="text" id="cb-name"
+                           placeholder="e.g. Computer Science 2025">
+                    <span class="form-error" id="cb-name-error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="cb-year">Year</label>
+                    <input class="form-input" type="number" id="cb-year"
+                           placeholder="e.g. 2025" min="2000" max="2100">
+                    <span class="form-error" id="cb-year-error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="cb-desc">Description (optional)</label>
+                    <textarea class="form-input" id="cb-desc" rows="3"
+                              placeholder="Brief description…"></textarea>
+                </div>
+                <div class="modal-footer-btns">
+                    <button type="button" class="btn btn-secondary" id="cancel-create-batch">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Batch</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="batches.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS — Teachers</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="manager.css">
+</head>
+<body class="app-layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">LMS</div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link">Dashboard</a>
+            <a href="batches.html"   class="sidebar-link">Batches</a>
+            <a href="teachers.html"  class="sidebar-link">Teachers</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="btn btn-secondary btn-sm btn-block" id="logout-btn">Logout</button>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <span class="navbar-title">Teachers</span>
+            <div class="navbar-right">
+                <span class="navbar-user" id="navbar-user"></span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-body">
+
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1>Teachers</h1>
+                        <p>Manage your institution's teachers</p>
+                    </div>
+                    <button class="btn btn-primary" id="add-teacher-btn">+ Add Teacher</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Joined</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teachers-tbody">
+                            <tr><td colspan="3" class="table-empty">Loading…</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Teacher Modal -->
+    <div class="modal-overlay" id="add-teacher-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Add Teacher</h2>
+                <button class="modal-close" id="close-add-teacher">&times;</button>
+            </div>
+            <form id="add-teacher-form" novalidate>
+                <div class="form-group">
+                    <label class="form-label" for="teacher-name">Full Name</label>
+                    <input class="form-input" type="text" id="teacher-name"
+                           placeholder="e.g. Dr. Jane Smith">
+                    <span class="form-error" id="teacher-name-error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="teacher-email">Email Address</label>
+                    <input class="form-input" type="email" id="teacher-email"
+                           placeholder="teacher@institution.edu">
+                    <span class="form-error" id="teacher-email-error"></span>
+                </div>
+                <div class="modal-footer-btns">
+                    <button type="button" class="btn btn-secondary" id="cancel-add-teacher">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Teacher</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Teacher Credentials Modal -->
+    <div class="modal-overlay" id="teacher-cred-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Teacher Account Created</h2>
+                <button class="modal-close" id="close-teacher-cred">&times;</button>
+            </div>
+            <p>Share these credentials with the teacher. The password cannot be recovered.</p>
+            <div class="credential-box">
+                <div>Email: <span id="t-cred-email"></span></div>
+                <div>Password: <span id="t-cred-password"></span></div>
+            </div>
+            <div class="credential-warning">
+                &#9888; Save this password now. It will never be shown again.
+            </div>
+            <div class="modal-footer-btns">
+                <button class="btn btn-primary" id="ok-teacher-cred">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="teachers.js"></script>
+</body>
+</html>
