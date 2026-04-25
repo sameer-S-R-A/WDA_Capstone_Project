@@ -1,0 +1,41 @@
+/* Manager-section overrides and extras */
+
+.assign-teacher-select {
+    min-width: 180px;
+}
+
+.batch-description {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.teacher-initial {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.teacher-cell {
+    display: flex;
+    align-items: center;
+}
+
+.manage-batch-title {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-top: 2px;
+}

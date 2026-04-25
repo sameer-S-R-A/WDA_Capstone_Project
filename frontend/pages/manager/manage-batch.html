@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS — Manage Batch</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="manager.css">
+</head>
+<body class="app-layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">LMS</div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link">Dashboard</a>
+            <a href="batches.html"   class="sidebar-link">Batches</a>
+            <a href="teachers.html"  class="sidebar-link">Teachers</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="btn btn-secondary btn-sm btn-block" id="logout-btn">Logout</button>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <span class="navbar-title" id="navbar-batch-name">Manage Batch</span>
+            <div class="navbar-right">
+                <span class="navbar-user" id="navbar-user"></span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-body">
+
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1 id="batch-title">Manage Batch</h1>
+                        <p class="manage-batch-title" id="batch-subtitle"></p>
+                    </div>
+                    <a href="batches.html" class="btn btn-secondary">← Back to Batches</a>
+                </div>
+
+                <div id="tabs-bar" class="tab-bar">
+                    <button class="tab-btn" data-tab="tab-subjects">Subjects</button>
+                    <button class="tab-btn" data-tab="tab-students">Students</button>
+                </div>
+
+                <!-- Subjects Tab -->
+                <section class="tab-panel" id="tab-subjects">
+                    <div class="inline-form">
+                        <div class="form-group">
+                            <label class="form-label" for="subject-name-input">Subject Name</label>
+                            <input class="form-input" type="text" id="subject-name-input"
+                                   placeholder="e.g. Mathematics">
+                        </div>
+                        <button class="btn btn-primary" id="add-subject-btn">Add Subject</button>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Assigned Teacher</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="subjects-tbody">
+                                <tr><td colspan="3" class="table-empty">Loading…</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Students Tab -->
+                <section class="tab-panel" id="tab-students">
+                    <div class="inline-form">
+                        <div class="form-group">
+                            <label class="form-label" for="student-name-input">Student Name</label>
+                            <input class="form-input" type="text" id="student-name-input"
+                                   placeholder="Full name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="student-email-input">Email</label>
+                            <input class="form-input" type="email" id="student-email-input"
+                                   placeholder="student@email.com">
+                        </div>
+                        <button class="btn btn-primary" id="add-student-btn">Add Student</button>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Enrolled</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="students-tbody">
+                                <tr><td colspan="4" class="table-empty">Loading…</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Assign Teacher Modal -->
+    <div class="modal-overlay" id="assign-teacher-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Assign Teacher</h2>
+                <button class="modal-close" id="close-assign-modal">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="teacher-select">Select Teacher</label>
+                <select class="form-input assign-teacher-select" id="teacher-select">
+                    <option value="">— choose a teacher —</option>
+                </select>
+            </div>
+            <div class="modal-footer-btns">
+                <button class="btn btn-secondary" id="cancel-assign">Cancel</button>
+                <button class="btn btn-primary" id="confirm-assign">Assign</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Credentials Modal -->
+    <div class="modal-overlay" id="student-cred-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Student Account Created</h2>
+                <button class="modal-close" id="close-student-cred">&times;</button>
+            </div>
+            <p>Share these credentials with the student. The password cannot be recovered.</p>
+            <div class="credential-box">
+                <div>Email: <span id="cred-email"></span></div>
+                <div>Password: <span id="cred-password"></span></div>
+            </div>
+            <div class="credential-warning">
+                &#9888; Save this password now. It will never be shown again.
+            </div>
+            <div class="modal-footer-btns">
+                <button class="btn btn-primary" id="ok-student-cred">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="manage-batch.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS — Student Dashboard</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="student.css">
+</head>
+<body class="app-layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">LMS</div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link">My Subjects</a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="btn btn-secondary btn-sm btn-block" id="logout-btn">Logout</button>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="navbar">
+            <span class="navbar-title">Student Dashboard</span>
+            <div class="navbar-right">
+                <span class="navbar-user" id="navbar-user"></span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-body">
+
+                <div class="welcome-banner">
+                    <h2>Welcome, <span id="welcome-name">Student</span>!</h2>
+                    <p>Here are all your subjects. Click a subject to view notes, videos and doubts.</p>
+                </div>
+
+                <div class="page-header">
+                    <div class="page-header-left">
+                        <h1>My Subjects</h1>
+                    </div>
+                </div>
+
+                <div class="cards-grid" id="subjects-grid">
+                    <p class="table-empty">Loading subjects…</p>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/utils.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

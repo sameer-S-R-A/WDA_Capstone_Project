@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS — Sign In</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-page">
+
+    <div class="auth-card">
+        <header class="auth-header">
+            <div class="auth-logo">LMS</div>
+            <p class="auth-tagline">Learning Management System</p>
+        </header>
+
+        <div class="auth-tabs">
+            <button class="auth-tab active" data-tab="login-panel">Sign In</button>
+            <button class="auth-tab" data-tab="register-panel">Register Institution</button>
+        </div>
+
+        <div class="auth-body">
+
+            <!-- Sign In -->
+            <section class="auth-panel active" id="login-panel">
+                <form id="login-form" novalidate>
+                    <div class="form-group">
+                        <label class="form-label" for="login-email">Email Address</label>
+                        <input class="form-input" type="email" id="login-email"
+                               placeholder="you@example.com" autocomplete="email">
+                        <span class="form-error" id="login-email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="login-password">Password</label>
+                        <input class="form-input" type="password" id="login-password"
+                               placeholder="••••••••" autocomplete="current-password">
+                        <span class="form-error" id="login-password-error"></span>
+                    </div>
+                    <button class="btn btn-primary btn-block btn-lg" type="submit">Sign In</button>
+                </form>
+            </section>
+
+            <!-- Register Institution -->
+            <section class="auth-panel" id="register-panel">
+                <form id="register-form" novalidate>
+                    <div class="form-group">
+                        <label class="form-label" for="reg-institution">Institution Name</label>
+                        <input class="form-input" type="text" id="reg-institution"
+                               placeholder="e.g. Springfield University">
+                        <span class="form-error" id="reg-institution-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="reg-admin-name">Your Name</label>
+                        <input class="form-input" type="text" id="reg-admin-name"
+                               placeholder="e.g. John Smith">
+                        <span class="form-error" id="reg-admin-name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="reg-email">Email Address</label>
+                        <input class="form-input" type="email" id="reg-email"
+                               placeholder="admin@institution.edu">
+                        <span class="form-error" id="reg-email-error"></span>
+                    </div>
+                    <button class="btn btn-primary btn-block btn-lg" type="submit">Register</button>
+                </form>
+
+                <div class="d-none" id="register-success">
+                    <h3 class="register-success-title">Institution Registered!</h3>
+                    <p class="register-success-desc">
+                        <strong id="success-inst-name"></strong> is now set up.
+                        Use these credentials to sign in as Batch Manager.
+                    </p>
+                    <div class="credential-box">
+                        <div>Email: <span id="success-email"></span></div>
+                        <div>Password: <span id="success-password"></span></div>
+                    </div>
+                    <div class="credential-warning">
+                        &#9888; Save your password now. It will never be shown again.
+                    </div>
+                    <p class="email-sent-text d-none" id="email-sent-notice">
+                        &#10003; Credentials also sent to your email.
+                    </p>
+                    <button class="btn btn-primary btn-block register-success-btn" id="go-to-login">
+                        Go to Sign In
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
